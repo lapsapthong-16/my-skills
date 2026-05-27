@@ -1,10 +1,15 @@
 # My Skills
 
-Personal AI-agent skills for Claude Code and Codex.
+Personal agent setup repo for Claude Code, Codex, and related coding tools.
 
-This repository is the source of truth for reusable skills. Keep skill source files here, then install selected skills into whichever agent you are using. By default, install skills globally so application repositories do not get extra generated files.
+This repo has two kinds of things:
 
-## Repository Layout
+- **Owned skills**: skills I create or customize. These live in `skills/`.
+- **Tools I use**: third-party tools with their own installers or project init commands. These live in `tools/`.
+
+The point is simple: keep one place that explains what I use, how to install it, and when it belongs in a project.
+
+## Repo Layout
 
 ```text
 .
@@ -14,6 +19,10 @@ This repository is the source of truth for reusable skills. Keep skill source fi
 │       ├── references/
 │       ├── scripts/
 │       └── assets/
+├── tools/
+│   ├── caveman.md
+│   ├── openspec.md
+│   └── rtk.md
 └── templates/
     └── skill/
         ├── SKILL.md
@@ -22,7 +31,7 @@ This repository is the source of truth for reusable skills. Keep skill source fi
         └── assets/
 ```
 
-The portable contract is:
+## Owned Skills
 
 - One skill per `skills/<skill-name>/` directory.
 - Skill directory names use kebab-case, for example `api-review`.
@@ -30,7 +39,19 @@ The portable contract is:
 - Default skills use portable frontmatter with `name` and `description`.
 - Optional supporting files live inside the skill directory.
 
-## Add A New Skill
+Install owned skills from this repo with `npx skills add`:
+
+```bash
+npx skills add lapsapthong-16/my-skills \
+  --skill api-review \
+  --agent claude-code \
+  --agent codex \
+  --global
+```
+
+Restart Claude Code or Codex after installing new skills.
+
+## Add An Owned Skill
 
 1. Pick a kebab-case skill name:
 
@@ -74,42 +95,13 @@ The portable contract is:
    git push
    ```
 
-## Install Skills Globally
+## Tools I Use
 
-Global installation is the recommended default. It installs skills into the agent's user-level skill directory instead of the current project.
+Tools are third-party projects that are not owned by this repo. Each tool page explains what it is, how to install it, and how to initialize it inside a project when that applies.
 
-Install one skill for both Claude Code and Codex:
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill api-review \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
-Install multiple skills:
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill api-review \
-  --skill frontend-design \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
-Short flags may also work depending on the installer version:
-
-```bash
-npx skills add lapsapthong-16/my-skills -s api-review -a claude-code -a codex -g
-```
-
-Restart Claude Code or Codex after installing new skills so the agent reloads available skill metadata.
-
-## External Skills
-
-Some skills are installed directly from upstream projects instead of stored in this repository. Track those install commands in [EXTERNAL-SKILLS.md](./EXTERNAL-SKILLS.md).
+- [Caveman](./tools/caveman.md): token-saving skill/plugin pack.
+- [OpenSpec](./tools/openspec.md): spec-driven change workflow.
+- [RTK](./tools/rtk.md): token-saving command proxy.
 
 ## Import Skills For A Project
 
