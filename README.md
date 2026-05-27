@@ -107,6 +107,10 @@ npx skills add lapsapthong-16/my-skills -s api-review -a claude-code -a codex -g
 
 Restart Claude Code or Codex after installing new skills so the agent reloads available skill metadata.
 
+## External Skills
+
+Some skills are installed directly from upstream projects instead of stored in this repository. Track those install commands in [EXTERNAL-SKILLS.md](./EXTERNAL-SKILLS.md).
+
 ## Import Skills For A Project
 
 Prefer global installation and document project expectations in the project README:
