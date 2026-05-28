@@ -39,11 +39,15 @@ The point is simple: keep one place that explains what I use, how to install it,
 - Default skills use portable frontmatter with `name` and `description`.
 - Optional supporting files live inside the skill directory.
 
+Current owned skills:
+
+- `repo-readme-writer`: creates or improves a repo-aware `README.md` with product story, flow diagrams, architecture diagrams, stack, setup, and Web3 contract details when relevant.
+
 Install owned skills from this repo with `npx skills add`:
 
 ```bash
 npx skills add lapsapthong-16/my-skills \
-  --skill api-review \
+  --skill repo-readme-writer \
   --agent claude-code \
   --agent codex \
   --global
@@ -56,7 +60,7 @@ Restart Claude Code or Codex after installing new skills.
 1. Pick a kebab-case skill name:
 
    ```bash
-   export SKILL_NAME=api-review
+   export SKILL_NAME=my-new-skill
    ```
 
 2. Copy the template:
@@ -70,11 +74,11 @@ Restart Claude Code or Codex after installing new skills.
 
    ```md
    ---
-   name: api-review
-   description: Use when reviewing API design, request/response contracts, versioning, or compatibility risks.
+   name: my-new-skill
+   description: Use when ...
    ---
 
-   # API Review
+   # My New Skill
 
    ## When To Use
 
@@ -110,13 +114,12 @@ Prefer global installation and document project expectations in the project READ
 ````md
 This project uses skills from lapsapthong-16/my-skills:
 
-- api-review
-- frontend-design
+- repo-readme-writer
 
 Install them globally:
 
 ```bash
-npx skills add lapsapthong-16/my-skills -s api-review -s frontend-design -a claude-code -a codex -g
+npx skills add lapsapthong-16/my-skills -s repo-readme-writer -a claude-code -a codex -g
 ```
 ````
 
@@ -170,3 +173,53 @@ Before committing a skill:
 - Large reference material lives in `references/`, not directly in `SKILL.md`.
 - Scripts are included only when they make repeated work safer or more deterministic.
 - Agent-specific behavior is clearly labeled.
+
+## Diagram Preview
+
+This section is only here to compare Mermaid-in-Markdown with Mermaid CLI exported assets.
+
+### Mermaid In README
+
+GitHub renders this directly from the Markdown code block. No generated image file is needed.
+
+```mermaid
+flowchart TD
+  A[User starts new project] --> B[Open my-skills README]
+  B --> C{Need owned skill or tool?}
+  C -->|Owned skill| D[Install from skills/ with npx skills add]
+  C -->|Third-party tool| E[Open tools/*.md]
+  D --> F[Use skill in Claude Code or Codex]
+  E --> G[Install or init tool from upstream docs]
+```
+
+### Mermaid CLI Exported Asset
+
+With Mermaid CLI, the diagram source lives in a `.mmd` file and the rendered output is exported to an image file such as SVG or PNG.
+
+Example source file:
+
+```text
+docs/diagrams/agent-stack.mmd
+```
+
+```mermaid
+flowchart LR
+  A[skills/repo-readme-writer] --> B[README generation]
+  C[tools/rtk.md] --> D[Project command output]
+  E[tools/openspec.md] --> F[Spec-driven changes]
+  G[tools/caveman.md] --> H[Shorter agent responses]
+```
+
+Example export command:
+
+```bash
+npx -p @mermaid-js/mermaid-cli mmdc \
+  -i docs/diagrams/agent-stack.mmd \
+  -o docs/images/agent-stack.svg
+```
+
+Then the README references the generated file:
+
+```md
+![Agent Stack](./docs/images/agent-stack.svg)
+```
