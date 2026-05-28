@@ -29,10 +29,9 @@ Inspect the current repository before writing. Do not produce a generic README f
    - Run commands and required environment
 4. Decide diagram flow:
    - In **New mode**, create fresh User Flow and System Architecture Flow diagrams.
-   - In **Update mode**, inspect the existing README for Excalidraw links, image links, Mermaid diagrams, or ASCII diagrams before creating anything new.
-   - If an Excalidraw MCP is available, prefer Excalidraw scenes for the two diagrams.
-   - If no Excalidraw MCP is available, or if scene linking is not available, use Mermaid or ASCII diagrams in the README.
-   - Do not block README generation only because diagram tooling is unavailable.
+   - In **Update mode**, inspect the existing README for Mermaid diagrams, ASCII diagrams, image links, or external diagram links before creating anything new.
+   - Prefer Mermaid diagrams directly in the README because GitHub renders them without generated image files or paid services.
+   - Use ASCII only when Mermaid would be too complex or the target Markdown renderer does not support Mermaid.
 5. Ask only when important facts cannot be inferred safely:
    - Target user or story scenario is unclear
    - Smart contract network/address is missing or ambiguous
@@ -40,6 +39,22 @@ Inspect the current repository before writing. Do not produce a generic README f
    - Product name conflicts across files
 6. Write or update `README.md`.
 7. Re-read the final README for broken structure, false claims, missing required sections, and commands that do not match the repo.
+
+## Clarifying Q&A
+
+Prefer inference from the repository, but ask the user concise questions when missing information would make the README misleading or weak. Do not ask about details already visible in files.
+
+Ask at most 3-5 questions at once. Prioritize questions that affect the story, setup, deployment, or contract sections.
+
+Good questions:
+- What is the intended user or judge-facing story for this project?
+- What problem should the README emphasize?
+- Which network are the smart contracts deployed on?
+- Are these contract addresses final or placeholders?
+- Is there a live demo, video, or screenshot link to include?
+- Are there required environment variables not shown in `.env.example`?
+
+If the user does not answer, proceed with `TBD` for unknown values and state what was inferred from the repo.
 
 ## Required README Sections
 
@@ -105,7 +120,18 @@ Describe the product as a buildable system:
 
 ### User Flow
 
-Always include a user flow diagram. Prefer an Excalidraw scene link when available; otherwise include Mermaid or ASCII that is simple enough to read on GitHub.
+Always include a user flow diagram. Prefer Mermaid directly in the README. Use ASCII only as a fallback.
+
+Mermaid example:
+
+```mermaid
+flowchart TD
+  A[User] --> B[Landing / Dashboard]
+  B --> C[Connect Wallet / Sign In]
+  C --> D[Create or Select Action]
+  D --> E[Review Result]
+  E --> F[Confirm / Share / Track]
+```
 
 ASCII fallback example:
 
@@ -130,7 +156,19 @@ Confirm / Share / Track
 
 ### System Architecture Flow
 
-Always include a system architecture diagram based on the actual repo. Prefer an Excalidraw scene link when available; otherwise include Mermaid or ASCII.
+Always include a system architecture diagram based on the actual repo. Prefer Mermaid directly in the README. Use ASCII only as a fallback.
+
+Mermaid example:
+
+```mermaid
+flowchart LR
+  A[Browser UI] --> B[Frontend App]
+  B --> C[API / Server Actions]
+  C --> D[Database / External APIs]
+  B --> E[Wallet Provider]
+  E --> F[Smart Contracts]
+  F --> G[Blockchain Network]
+```
 
 ASCII fallback example:
 
@@ -154,70 +192,20 @@ Frontend App
        Blockchain Network
 ```
 
-### Excalidraw Diagram Mode
-
-Use this mode only when an Excalidraw MCP server is available in the active client. Treat Excalidraw as a diagram capability bundled into this README workflow, not as a standalone repo tool.
+### Diagram Update Rules
 
 For a new README:
-- Create two separate scenes: User Flow and System Architecture Flow.
-- Add the scene links under the matching README sections.
-- If the user will manually export PNGs later, include a short note such as "Excalidraw scene: <url>" rather than inventing a local image path.
-- Include Mermaid or ASCII fallback only when helpful for immediate GitHub readability.
+- Create Mermaid diagrams for User Flow and System Architecture Flow.
+- Keep node labels short and readable.
+- Use left-to-right or top-down direction consistently.
 
 For an existing README:
-- First check whether the README already has Excalidraw scene links, image links, Mermaid diagrams, or ASCII diagrams.
-- If existing Excalidraw links are present and the MCP can access them, update those scenes instead of creating duplicates.
-- If existing Excalidraw links are present but inaccessible, keep the links unless clearly stale, then create new scenes and label them as updated.
-- If existing image diagrams are present, preserve them when still accurate. Add Excalidraw scene links only if the current diagrams are missing, stale, or requested for editing.
-- If existing Mermaid or ASCII diagrams are present, replace or supplement them with Excalidraw scene links when the MCP can produce better diagrams.
-- Do not delete old diagrams unless they are clearly obsolete or replaced by better current diagrams.
+- First check whether the README already has Mermaid diagrams, ASCII diagrams, image links, or external diagram links.
+- If existing Mermaid diagrams are present, update those diagrams instead of adding duplicates.
+- If existing ASCII diagrams are present, replace them with Mermaid when the flow is clear.
+- If existing image or external diagram links are present, preserve them when still accurate.
+- Do not delete old diagrams unless they are clearly obsolete or replaced by better current Mermaid diagrams.
 - Do not create duplicate diagrams on repeated README updates.
-
-Recommended scene style:
-- Use simple boxes for actors, screens, services, APIs, contracts, and storage.
-- Use arrows with labels for important actions or data movement.
-- Keep labels short so the diagram works in a README.
-- Prefer left-to-right flow for user journeys.
-- Prefer layered top-to-bottom or left-to-right flow for architecture.
-- Use the project name and diagram type in the scene title.
-
-When the MCP can provide a shareable scene URL, link it in the README:
-
-```md
-## User Flow
-
-Excalidraw scene: <user-flow-scene-url>
-
-## System Architecture Flow
-
-Excalidraw scene: <system-architecture-scene-url>
-```
-
-If the user manually exports PNGs later, update the README to reference the real committed files:
-
-```md
-## User Flow
-
-![User Flow](./docs/images/user-flow.png)
-
-## System Architecture Flow
-
-![System Architecture Flow](./docs/images/system-architecture.png)
-```
-
-If the scene link exists but GitHub readability needs a fallback, include Mermaid or ASCII under it:
-
-````md
-## User Flow
-
-Excalidraw scene: <scene-url>
-
-```text
-ASCII fallback here
-```
-````
-
-Do not invent image paths. Only reference files or URLs that actually exist or were created during the task.
 
 ### Tech Stack
 
