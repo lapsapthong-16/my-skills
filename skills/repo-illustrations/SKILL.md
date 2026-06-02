@@ -1,17 +1,17 @@
 ---
-name: ian-xiaohei-illustrations
-description: Generate Ian Xiaohei-style English README illustrations for project repositories. Use only when the user asks for hand-drawn, absurd, Xiaohei, README, repository, project overview, architecture, workflow, feature, setup, or shot-list illustrations based on a repo README.md file. Read only the README.md content as source material; ignore code, package files, docs, issues, websites, and other repo files unless the user explicitly asks to stop using this skill.
+name: repo-illustrations
+description: Generate English README illustrations for project repositories. Use only when the user asks for hand-drawn, absurd, README, repository, project overview, architecture, workflow, feature, setup, or shot-list illustrations based on a repo README.md file. Read only the README.md content as source material; ignore code, package files, docs, issues, websites, and other repo files unless the user explicitly asks to stop using this skill.
 ---
 
-# Ian Xiaohei README Illustrations
+# Repo Illustrations
 
 ## Core Purpose
 
-Design and generate 16:9 horizontal illustrations for project repository README files. The output should help explain a repo's product idea, problem, workflow, architecture, features, setup path, or project story using the original Ian Xiaohei visual style.
+Design and generate 16:9 horizontal illustrations for project repository README files. The output should help explain a repo's product idea, problem, workflow, architecture, features, setup path, or project story using a sparse absurd hand-drawn visual style.
 
 This skill must only use `README.md` files as source material. Do not inspect or infer from source code, package manifests, docs folders, websites, screenshots, issues, commit history, or any other repo file. If no README path is given, look for the repository's root `README.md`. If the user provides a differently named Markdown file, ask whether to treat it as the README before using it.
 
-The default visual IP is Xiaohei: a small solid-black absurd creature with white dot eyes, tiny thin legs, and a blank serious expression, doing one strange but logically meaningful action. Xiaohei must drive the core concept, not decorate the scene.
+The default visual IP is a small solid-black absurd repo character with white dot eyes, tiny thin legs, and a blank serious expression, doing one strange but logically meaningful action. The character must drive the core concept, not decorate the scene.
 
 All visible text in generated images must be English. Use sparse, short, handwritten English labels.
 
@@ -20,7 +20,7 @@ All visible text in generated images must be English. Use sparse, short, handwri
 Read only what is needed:
 
 - `references/style-dna.md`: style DNA, color, text density, and visual bans. Treat any Chinese-label guidance there as English-label guidance.
-- `references/xiaohei-ip.md`: Xiaohei character design, personality, action library, and bans.
+- `references/visual-ip.md`: repo character design, personality, action library, and bans.
 - `references/composition-patterns.md`: structure types, metaphor invention, and anti-copy rules.
 - `references/prompt-template.md`: single-image generation prompt template.
 - `references/qa-checklist.md`: post-generation checks and iteration rules.
@@ -51,7 +51,7 @@ If the user asks to analyze, plan, or suggest illustrations, provide a short sho
 - image theme
 - core idea
 - structure type
-- what Xiaohei does
+- what the repo character does
 - suggested elements
 - suggested short English labels
 
@@ -68,16 +68,16 @@ Each image must explain one core structure. Prompts must include:
 - minimalist black hand-drawn line art
 - sparse red/orange/blue handwritten English annotations
 - lots of white space
-- Xiaohei as the core action subject
+- the repo character as the core action subject
 - no PPT, commercial vector style, cute mascot poster, complex architecture diagram, or top-left type title
 
-Do not copy prior examples. Examples only calibrate density and Xiaohei's participation. Do not reuse known compositions such as conveyor breakpoints, Xiaohei pulling lines, fish-as-assets, stamped toolboxes, or common-pit paths unless the user explicitly requests that exact remake. Invent a fresh, strange, but coherent metaphor from the README content.
+Do not copy prior examples. Examples only calibrate density and the repo character's participation. Do not reuse known compositions such as conveyor breakpoints, line-pulling paths, fish-as-assets, stamped toolboxes, or common-pit paths unless the user explicitly requests that exact remake. Invent a fresh, strange, but coherent metaphor from the README content.
 
 ### 4. Check And Iterate
 
 After generation, check `references/qa-checklist.md`. If any of these appear, regenerate or edit:
 
-- Xiaohei is decorative instead of active
+- the repo character is decorative instead of active
 - the image is too full
 - it looks like a flowchart, PPT slide, or formal architecture diagram
 - English labels are too long, misspelled, or unreadable

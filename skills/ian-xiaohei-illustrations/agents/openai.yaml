@@ -1,6 +1,0 @@
-interface:
-  display_name: "README Xiaohei Illustrations"
-  short_description: "Generate sparse absurd English README illustrations with Xiaohei"
-  default_prompt: "Use $ian-xiaohei-illustrations to read this repo's README.md only and generate a few English Xiaohei-style project illustrations."
-policy:
-  allow_implicit_invocation: true
