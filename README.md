@@ -41,9 +41,29 @@ The point is simple: keep one place that explains what I use, how to install it,
 
 Current owned skills:
 
+- `ian-xiaohei-illustrations`: generates Ian Xiaohei-style English README illustrations for repository overview, architecture, workflow, feature, setup, or shot-list visuals based on a repo `README.md`.
 - `repo-readme-writer`: creates or improves a repo-aware `README.md` with product story, flow diagrams, architecture diagrams, stack, setup, and Web3 contract details when relevant.
 
-Install owned skills from this repo with `npx skills add`:
+Install every owned skill from this repo:
+
+```bash
+npx skills add lapsapthong-16/my-skills \
+  --skill ian-xiaohei-illustrations \
+  --skill repo-readme-writer \
+  --agent claude-code \
+  --agent codex \
+  --global
+```
+
+Or install one owned skill at a time:
+
+```bash
+npx skills add lapsapthong-16/my-skills \
+  --skill ian-xiaohei-illustrations \
+  --agent claude-code \
+  --agent codex \
+  --global
+```
 
 ```bash
 npx skills add lapsapthong-16/my-skills \
