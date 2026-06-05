@@ -278,6 +278,9 @@ Add screenshots or a demo link here after deployment.
 - Write like a polished hackathon/product README.
 - Be concrete and repo-specific.
 - Prefer short paragraphs and tables.
+- Use emojis sparingly when they improve scanning or make the README feel less dry, such as in section headings, feature bullets, status notes, or demo callouts.
+- Do not force emojis into every heading or bullet. Avoid repeated emoji patterns, decorative clutter, or emojis in technical commands, code blocks, addresses, environment variable names, tables where they reduce clarity, or legal/security notes.
+- Prefer one useful emoji per relevant heading or bullet group when it helps the reader quickly recognize the section's purpose.
 - Avoid hype that the code does not support.
 - Avoid long architecture essays.
 - Preserve useful existing README content in update mode.
