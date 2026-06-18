@@ -22,6 +22,7 @@ The point is simple: keep one place that explains what I use, how to install it,
 ├── tools/
 │   ├── caveman.md
 │   ├── openspec.md
+│   ├── ponytail.md
 │   └── rtk.md
 └── templates/
     └── skill/
@@ -41,6 +42,7 @@ The point is simple: keep one place that explains what I use, how to install it,
 
 Current owned skills:
 
+- `parallel-goals`: turns a task into a concrete build brief and goal, delegates independent work to parallel agents, and synthesizes verified results.
 - `validator`: validates or generates project problem statements, niches, opponent maps, and solution directions for repos, hackathon ideas, and rough product tracks.
 - `repo-illustrations`: generates English README illustrations for repository overview, architecture, workflow, feature, setup, or shot-list visuals based on a repo `README.md`.
 - `repo-readme-writer`: creates or improves a repo-aware `README.md` with product story, flow diagrams, architecture diagrams, stack, setup, and Web3 contract details when relevant.
@@ -49,6 +51,7 @@ Install every owned skill from this repo:
 
 ```bash
 npx skills add lapsapthong-16/my-skills \
+  --skill parallel-goals \
   --skill validator \
   --skill repo-illustrations \
   --skill repo-readme-writer \
@@ -58,6 +61,14 @@ npx skills add lapsapthong-16/my-skills \
 ```
 
 Or install one owned skill at a time:
+
+```bash
+npx skills add lapsapthong-16/my-skills \
+  --skill parallel-goals \
+  --agent claude-code \
+  --agent codex \
+  --global
+```
 
 ```bash
 npx skills add lapsapthong-16/my-skills \
@@ -135,6 +146,7 @@ Tools are third-party projects that are not owned by this repo. Each tool page e
 
 - [Caveman](./tools/caveman.md): token-saving skill/plugin pack.
 - [OpenSpec](./tools/openspec.md): spec-driven change workflow.
+- [Ponytail](./tools/ponytail.md): minimal-code skill/plugin pack for avoiding over-engineering.
 - [RTK](./tools/rtk.md): token-saving command proxy.
 
 ## Import Skills For A Project
