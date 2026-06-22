@@ -46,6 +46,7 @@ Current owned skills:
 - `validator`: validates or generates project problem statements, niches, opponent maps, and solution directions for repos, hackathon ideas, and rough product tracks.
 - `repo-illustrations`: generates English README illustrations for repository overview, architecture, workflow, feature, setup, or shot-list visuals based on a repo `README.md`.
 - `repo-readme-writer`: creates or improves a repo-aware `README.md` with product story, flow diagrams, architecture diagrams, stack, setup, and Web3 contract details when relevant.
+- `refactor-codebase`: reviews and safely refactors an entire repository, removes proven dead code, files, assets, and dependencies, verifies behavior, and reports per-file and aggregate changes.
 
 Install every owned skill from this repo:
 
@@ -55,6 +56,7 @@ npx skills add lapsapthong-16/my-skills \
   --skill validator \
   --skill repo-illustrations \
   --skill repo-readme-writer \
+  --skill refactor-codebase \
   --agent claude-code \
   --agent codex \
   --global
@@ -89,6 +91,14 @@ npx skills add lapsapthong-16/my-skills \
 ```bash
 npx skills add lapsapthong-16/my-skills \
   --skill repo-readme-writer \
+  --agent claude-code \
+  --agent codex \
+  --global
+```
+
+```bash
+npx skills add lapsapthong-16/my-skills \
+  --skill refactor-codebase \
   --agent claude-code \
   --agent codex \
   --global
