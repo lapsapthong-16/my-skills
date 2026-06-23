@@ -7,6 +7,12 @@ description: Review and refactor an existing repository end to end while preserv
 
 Clean the repository, not merely report findings. Prefer deletion and simplification over new abstractions.
 
+This skill can also surface architecture deepening opportunities before editing
+when the repository has real architectural friction, or when the user asks for an
+architecture review as part of the refactor. A deepening opportunity turns a
+shallow module into a deeper one: smaller interface, larger implementation, more
+locality, and better leverage from tests.
+
 ## Boundaries
 
 - Preserve observable behavior unless the user explicitly requests a behavior change.
@@ -38,6 +44,28 @@ Search tracked and relevant untracked source files while excluding dependency ca
 
 Follow the Ponytail order: delete unnecessary work; use the standard library; use native platform features; reuse an installed dependency; only then write the minimum code required.
 
+Also note architecture friction where it is directly relevant to safe cleanup:
+
+- understanding one concept requires bouncing through many shallow modules;
+- an interface is nearly as complex as the implementation behind it;
+- pure functions were extracted only for testability, but bugs live in how they are wired together;
+- tightly coupled modules leak across a seam;
+- tests must mock many adapters instead of exercising one useful interface.
+
+Use the deletion test before naming an architecture candidate: would deleting the
+module concentrate complexity into a deeper module, or merely move the same
+complexity elsewhere? Only keep candidates where the answer is "concentrate".
+
+Use this vocabulary in architecture notes and final summaries: module,
+interface, implementation, depth, deep, shallow, seam, adapter, leverage, and
+locality.
+
+If the user asked for architecture review, or if the inspection finds multiple
+credible deepening candidates, generate an HTML report before editing. Use
+`references/HTML-REPORT.md` for the format. Write it to the OS temp
+directory, open it for the user, and ask which candidate they want to explore or
+apply. Do not propose new interfaces until the user picks a candidate.
+
 ### 3. Rank and apply
 
 Work from highest-confidence, highest-value cuts to smaller structural cleanup:
@@ -45,7 +73,8 @@ Work from highest-confidence, highest-value cuts to smaller structural cleanup:
 1. Delete proven dead files, assets, code, scripts, and dependencies.
 2. Inline or remove redundant layers, wrappers, branches, and configuration.
 3. Consolidate genuine duplication without creating speculative abstractions.
-4. Apply named behavior-preserving refactorings only where they make the result smaller or materially clearer.
+4. Apply architecture deepening only when it is behavior-preserving, backed by locality or leverage gains, and smaller than leaving the shallow modules in place.
+5. Apply named behavior-preserving refactorings only where they make the result smaller or materially clearer.
 
 Make changes in small coherent batches. After each non-trivial batch, run the narrowest relevant check. If a batch causes a regression, undo only the exact edits from that batch; never restore whole files containing pre-existing user changes.
 
@@ -100,3 +129,7 @@ List commands run and their result. State baseline failures and skipped checks e
 ### Uncertain / not changed
 
 List only plausible cleanup candidates retained because usage or safety could not be proven. Omit this section when empty.
+
+Include architecture candidates not applied here when they were speculative, user
+approval was not available, tests were insufficient, or the candidate would
+change behavior.

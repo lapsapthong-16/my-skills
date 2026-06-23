@@ -5,7 +5,7 @@ Personal agent setup repo for Claude Code, Codex, and related coding tools.
 This repo has two kinds of things:
 
 - **Owned skills**: skills I create or customize. These live in `skills/`.
-- **Tools I use**: third-party tools with their own installers or project init commands. These live in `tools/`.
+- **Tools I use**: third-party tools with their own docs, installers, or source links. These live in `tools/` or are linked below.
 
 The point is simple: keep one place that explains what I use, how to install it, and when it belongs in a project.
 
@@ -46,7 +46,7 @@ Current owned skills:
 - `validator`: validates or generates project problem statements, niches, opponent maps, and solution directions for repos, hackathon ideas, and rough product tracks.
 - `repo-illustrations`: generates English README illustrations for repository overview, architecture, workflow, feature, setup, or shot-list visuals based on a repo `README.md`.
 - `repo-readme-writer`: creates or improves a repo-aware `README.md` with product story, flow diagrams, architecture diagrams, stack, setup, and Web3 contract details when relevant.
-- `refactor-codebase`: reviews and safely refactors an entire repository, removes proven dead code, files, assets, and dependencies, verifies behavior, and reports per-file and aggregate changes.
+- `refactor-codebase`: reviews architecture, generates deepening candidates when useful, safely refactors an entire repository, removes proven dead code, files, assets, and dependencies, verifies behavior, and reports per-file and aggregate changes.
 
 Install every owned skill from this repo:
 
@@ -152,12 +152,13 @@ Restart Claude Code or Codex after installing new skills.
 
 ## Tools I Use
 
-Tools are third-party projects that are not owned by this repo. Each tool page explains what it is, how to install it, and how to initialize it inside a project when that applies.
+Tools are third-party projects that are not owned by this repo. Each entry explains what it is, where it comes from, and how it belongs in a project when that applies.
 
 - [Caveman](./tools/caveman.md): token-saving skill/plugin pack.
 - [OpenSpec](./tools/openspec.md): spec-driven change workflow.
 - [Ponytail](./tools/ponytail.md): minimal-code skill/plugin pack for avoiding over-engineering.
 - [RTK](./tools/rtk.md): token-saving command proxy.
+- [writing-great-skills](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-great-skills/SKILL.md): Matt Pocock tool for creating, assessing, and editing skills well.
 
 ## Import Skills For A Project
 
