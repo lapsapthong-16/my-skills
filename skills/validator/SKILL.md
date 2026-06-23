@@ -1,6 +1,6 @@
 ---
 name: validator
-description: Validate or generate project problem statements, niches, market opponents, and solution concepts. Use when the user asks whether a project idea is valid, original, niche, interesting, hackathon-worthy, worth building, duplicated by existing products, or when they need help turning a rough track into a strong problem statement and solution. For existing repos, inspect the repository and validate the inferred idea; for new ideas, work from the user's description and ask for missing core context.
+description: Validate project ideas, problem statements, niches, opponents, and solution concepts. Use when the user asks whether an idea is worth building, duplicated, hackathon-worthy, or when they want to turn a rough track into a stronger problem statement and solution.
 ---
 
 # Validator

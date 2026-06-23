@@ -7,11 +7,7 @@ description: Review and refactor an existing repository end to end while preserv
 
 Clean the repository, not merely report findings. Prefer deletion and simplification over new abstractions.
 
-This skill can also surface architecture deepening opportunities before editing
-when the repository has real architectural friction, or when the user asks for an
-architecture review as part of the refactor. A deepening opportunity turns a
-shallow module into a deeper one: smaller interface, larger implementation, more
-locality, and better leverage from tests.
+When the user asks for architecture review, also surface deepening opportunities. A deepening opportunity turns a shallow module into a deeper one: smaller interface, larger implementation, more locality, and better leverage from tests.
 
 ## Boundaries
 
@@ -60,11 +56,9 @@ Use this vocabulary in architecture notes and final summaries: module,
 interface, implementation, depth, deep, shallow, seam, adapter, leverage, and
 locality.
 
-If the user asked for architecture review, or if the inspection finds multiple
-credible deepening candidates, generate an HTML report before editing. Use
-`references/HTML-REPORT.md` for the format. Write it to the OS temp
-directory, open it for the user, and ask which candidate they want to explore or
-apply. Do not propose new interfaces until the user picks a candidate.
+If the user asked for architecture review, generate an HTML report before editing. Use `references/HTML-REPORT.md` for the format. Write it to the OS temp directory, open it for the user, and ask which candidate they want to explore or apply. Do not propose new interfaces until the user picks a candidate.
+
+If architecture friction appears during ordinary cleanup, do not pause the cleanup. List credible candidates under `Uncertain / not changed` unless there is a small behavior-preserving deletion or inline cleanup to apply safely.
 
 ### 3. Rank and apply
 

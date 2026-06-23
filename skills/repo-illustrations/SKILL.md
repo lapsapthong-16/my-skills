@@ -1,6 +1,6 @@
 ---
 name: repo-illustrations
-description: Generate English README illustrations for project repositories. Use only when the user asks for hand-drawn, absurd, README, repository, project overview, architecture, workflow, feature, setup, or shot-list illustrations based on a repo README.md file. Read only the README.md content as source material; ignore code, package files, docs, issues, websites, and other repo files unless the user explicitly asks to stop using this skill.
+description: Generate hand-drawn absurd English illustrations or shot lists for repository README files. Use when the user asks for README illustrations, repo illustration prompts, or hand-drawn visual explanations based on a repo README.md file.
 ---
 
 # Repo Illustrations

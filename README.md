@@ -158,6 +158,9 @@ Tools are third-party projects that are not owned by this repo. Each entry expla
 - [OpenSpec](./tools/openspec.md): spec-driven change workflow.
 - [Ponytail](./tools/ponytail.md): minimal-code skill/plugin pack for avoiding over-engineering.
 - [RTK](./tools/rtk.md): token-saving command proxy.
+- [prototype](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md): Matt Pocock tool for quickly building throwaway implementations to learn before committing.
+- [diagnosing-bugs](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md): Matt Pocock tool for reproducing, isolating, fixing, and regression-testing bugs.
+- [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md): Matt Pocock tool for writing a continuation handoff so another session can pick up work.
 - [writing-great-skills](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-great-skills/SKILL.md): Matt Pocock tool for creating, assessing, and editing skills well.
 
 ## Import Skills For A Project

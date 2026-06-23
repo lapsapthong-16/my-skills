@@ -1,6 +1,6 @@
 ---
 name: parallel-goals
-description: Convert a user's task request into a filled build brief, create a concrete top-level goal, split the work into independent parallel agent goals, and synthesize the results. Use when the user asks for Parallel goals for a task, asks to fill the build-task template, or asks Codex to solve a task with parallel goals or parallel agents.
+description: Convert a user's task request into a filled build brief, split it into independent parallel agent goals, and synthesize the results. Use when the user asks for parallel goals, parallel agents, or the build-task template.
 ---
 
 # Parallel Goals For A Task
@@ -23,7 +23,9 @@ Ask the user a question only when a missing detail makes the task impossible or 
 
 Before dispatching work, define what done means for the task.
 
-If a goal tool or `/goal` workflow is available, create a new top-level goal from the filled brief before starting. If the platform already has an active goal and cannot create another one, continue under the active goal and write the new objective into the working plan instead of blocking.
+If the user explicitly asked for goal tracking and a goal tool or `/goal` workflow is available, create a new top-level goal from the filled brief before starting. If the platform already has an active goal and cannot create another one, continue under the active goal and write the new objective into the working plan instead of blocking.
+
+If goal creation is unavailable or not explicitly requested, keep the filled brief in the working plan and continue.
 
 The top-level goal must include:
 
