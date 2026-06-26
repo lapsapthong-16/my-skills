@@ -74,7 +74,7 @@ Suggested groups:
 
 ### Smart Contracts
 
-For Web3 projects, include a table:
+Include this section only when the repo has contract source, deployment, address, ABI, or config evidence. If that evidence is absent, omit the section.
 
 ```md
 | Contract | Network | Address | Purpose |

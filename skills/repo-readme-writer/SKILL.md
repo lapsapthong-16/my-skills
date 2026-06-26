@@ -35,7 +35,7 @@ Inspect the current repository before writing. Do not produce a generic README f
    - Use ASCII only when Mermaid would be too complex or the target Markdown renderer does not support Mermaid.
 5. Ask only when important facts cannot be inferred safely:
    - Target user or story scenario is unclear
-   - Smart contract network/address is missing or ambiguous
+   - Smart contract evidence exists, but network/address is missing or ambiguous
    - Setup commands cannot be inferred
    - Product name conflicts across files
 6. Read `references/readme-sections.md` only when you need section templates, diagram examples, Web3 contract tables, or README style guidance.
@@ -76,7 +76,7 @@ Add only when supported by the repo:
 
 - Story scenario for demo, pitch, or hackathon repos
 - User flow or system architecture diagram for multi-part apps
-- Smart contracts for Web3 repos
+- Smart contracts only when contract source, deployment, address, ABI, or config evidence exists
 - Project structure for larger repos
 - Demo / screenshots when links or assets exist
 - Roadmap when the repo already implies planned work
