@@ -155,6 +155,7 @@ Restart Claude Code or Codex after installing new skills.
 Tools are third-party projects that are not owned by this repo. Each entry explains what it is, where it comes from, and how it belongs in a project when that applies.
 
 - [Caveman](./tools/caveman.md): token-saving skill/plugin pack.
+- [Frontend Slides](./tools/frontend-slides.md): Claude Code plugin and portable agent skill for creating HTML presentations or converting PowerPoint decks.
 - [OpenSpec](./tools/openspec.md): spec-driven change workflow.
 - [Ponytail](./tools/ponytail.md): minimal-code skill/plugin pack for avoiding over-engineering.
 - [RTK](./tools/rtk.md): token-saving command proxy.
