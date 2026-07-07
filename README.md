@@ -34,13 +34,6 @@ The point is simple: keep one place that explains what I use, how to install it,
 
 ## Owned Skills
 
-- One skill per `skills/<skill-name>/` directory.
-- Skill directory names use kebab-case, for example `api-review`.
-- Every skill has a `SKILL.md`.
-- Default skills use portable frontmatter with `name` and `description`.
-- Optional supporting files live inside the skill directory.
-
-Current owned skills:
 
 - `parallel-goals`: turns a task into a concrete build brief and goal, delegates independent work to parallel agents, and synthesizes verified results.
 - `validator`: validates or generates project problem statements, niches, opponent maps, and solution directions for repos, hackathon ideas, and rough product tracks.
@@ -62,93 +55,7 @@ npx skills add lapsapthong-16/my-skills \
   --global
 ```
 
-Or install one owned skill at a time:
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill parallel-goals \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill validator \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill repo-illustrations \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill repo-readme-writer \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
-```bash
-npx skills add lapsapthong-16/my-skills \
-  --skill refactor-codebase \
-  --agent claude-code \
-  --agent codex \
-  --global
-```
-
 Restart Claude Code or Codex after installing new skills.
-
-## Add An Owned Skill
-
-1. Pick a kebab-case skill name:
-
-   ```bash
-   export SKILL_NAME=my-new-skill
-   ```
-
-2. Copy the template:
-
-   ```bash
-   mkdir -p "skills/$SKILL_NAME"
-   cp -R templates/skill/. "skills/$SKILL_NAME/"
-   ```
-
-3. Edit `skills/<skill-name>/SKILL.md`:
-
-   ```md
-   ---
-   name: my-new-skill
-   description: Use when ...
-   ---
-
-   # My New Skill
-
-   ## When To Use
-
-   Use this skill when ...
-   ```
-
-4. Add only the resources the skill needs:
-
-   - `references/` for detailed docs that should be read only when relevant.
-   - `scripts/` for repeatable helper scripts.
-   - `assets/` for templates, images, fixtures, or other files used in outputs.
-
-5. Commit and push the skill:
-
-   ```bash
-   git add skills/<skill-name>
-   git commit -m "Add <skill-name> skill"
-   git push
-   ```
 
 ## Tools I Use
 
@@ -163,39 +70,6 @@ Tools are third-party projects that are not owned by this repo. Each entry expla
 - [diagnosing-bugs](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md): Matt Pocock tool for reproducing, isolating, fixing, and regression-testing bugs.
 - [handoff](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md): Matt Pocock tool for writing a continuation handoff so another session can pick up work.
 - [writing-great-skills](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-great-skills/SKILL.md): Matt Pocock tool for creating, assessing, and editing skills well.
-
-## Import Skills For A Project
-
-Prefer global installation and document project expectations in the project README:
-
-````md
-This project uses skills from lapsapthong-16/my-skills:
-
-- repo-readme-writer
-
-Install them globally:
-
-```bash
-npx skills add lapsapthong-16/my-skills -s repo-readme-writer -a claude-code -a codex -g
-```
-````
-
-If a project needs local skill folders, keep Git behavior explicit.
-
-For local-only excludes that do not affect teammates:
-
-```bash
-printf ".claude/skills/\n.codex/skills/\n" >> .git/info/exclude
-```
-
-For a team-wide rule, add this to the project `.gitignore`:
-
-```gitignore
-.claude/skills/
-.codex/skills/
-```
-
-Only commit `.claude/skills/` or `.codex/skills/` when the project intentionally vendors the skill source and the team agrees to maintain those copies.
 
 ## Cross-Agent Compatibility
 
